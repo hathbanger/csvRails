@@ -23172,3 +23172,293 @@ Served asset /products.js - 200 OK (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-29 11:22:40 -0700
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  DROP TABLE "products"
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "location" varchar(255), "phone" integer, "website" varchar(255), "userRating" integer, "shelfSpace" integer, "visited" boolean, "notes" varchar(255), "ypRating" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/products/" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Connecting to database specified by database.yml
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name[0m
+  Rendered products/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 52ms (Views: 33.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Served asset /layout.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Served asset /products.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Served asset /products.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-29 12:24:40 -0700
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-04-29 12:24:46 -0700
+Processing by ProductsController#new as HTML
+  Rendered products/new.html.erb within layouts/application (26.8ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined method `visted' for #<Product:0x007fefd0b37208>):
+    32: 		</p>
+    33: 		<p class="inputInfo" placeholder="visted" id="visted">
+    34: 			<%= f.label :visted %>
+    35: 			<%= f.text_field :visted %>
+    36: 		</p>
+    37: 		<p class="inputInfo" placeholder="notes" id="notes">
+    38: 			<%= f.label :notes %>
+  app/views/products/new.html.erb:35:in `block in _app_views_products_new_html_erb__1460541035855945250_70333987148080'
+  app/views/products/new.html.erb:4:in `_app_views_products_new_html_erb__1460541035855945250_70333987148080'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.7ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateProducts (20120701210336)
+Migrating to AddPartNumberToProducts (20150428190140)
+Migrating to RemoveReleasedOnFromProducts (20150428200525)
+Migrating to RemovePriceFromProducts (20150428202016)
+Migrating to RemovePartNumberFromProducts (20150428202120)
+Migrating to AddDetailsToProducts (20150428202449)
+Migrating to RemoveYbRatingFromProducts (20150428204315)
+Migrating to AddYpRatingToProducts (20150428204418)
+Migrating to AddVistedFromProducts (20150428204507)
+Migrating to AddVRemoveVisitedFromProducts (20150428204550)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "products" ADD "visited" boolean
+SQLite3::SQLException: duplicate column name: visited: ALTER TABLE "products" ADD "visited" boolean
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-04-29 12:26:37 -0700
+Connecting to database specified by database.yml
+Processing by ProductsController#new as HTML
+  Rendered products/new.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 29ms
+
+ActionView::Template::Error (undefined method `visted' for #<Product:0x007fe28c622f48>):
+    32: 		</p>
+    33: 		<p class="inputInfo" placeholder="visted" id="visted">
+    34: 			<%= f.label :visted %>
+    35: 			<%= f.text_field :visted %>
+    36: 		</p>
+    37: 		<p class="inputInfo" placeholder="notes" id="notes">
+    38: 			<%= f.label :notes %>
+  app/views/products/new.html.erb:35:in `block in _app_views_products_new_html_erb___2466737088619206419_70305503278600'
+  app/views/products/new.html.erb:4:in `_app_views_products_new_html_erb___2466737088619206419_70305503278600'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Processing by ProductsController#new as HTML
+  Rendered products/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 26ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Served asset /products.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Served asset /layout.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Served asset /products.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-29 12:26:53 -0700
+Served asset /application.js - 304 Not Modified (27ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Processing by ProductsController#new as HTML
+  Rendered products/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Served asset /layout.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-29 12:27:00 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2015-04-29 12:27:41 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/3l88ajJ8oEw6g6ESZtbN8kwWQmDrn8kBu1GdDtDY18=", "product"=>{"name"=>"711", "location"=>"342 Santa Monica Blvd", "phone"=>"1 803 892 9384", "website"=>"www.yelp.com", "ypRating"=>"2.4", "userRating"=>"3.2", "shelfSpace"=>"2", "visited"=>"true", "notes"=>"Smells weird.."}, "commit"=>"add new info"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: visited):
+  app/controllers/products_controller.rb:21:in `new'
+  app/controllers/products_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2015-04-29 12:28:05 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/3l88ajJ8oEw6g6ESZtbN8kwWQmDrn8kBu1GdDtDY18=", "product"=>{"name"=>"711", "location"=>"342 Santa Monica Blvd", "phone"=>"1 803 892 9384", "website"=>"www.yelp.com", "ypRating"=>"2.4", "userRating"=>"3.2", "shelfSpace"=>"2", "visited"=>"true", "notes"=>"Smells weird.."}, "commit"=>"add new info"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO "products" ("created_at", "location", "name", "notes", "phone", "shelfSpace", "updated_at", "userRating", "visited", "website", "ypRating") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 29 Apr 2015 19:28:05 UTC +00:00], ["location", "342 Santa Monica Blvd"], ["name", "711"], ["notes", "Smells weird.."], ["phone", 1], ["shelfSpace", 2], ["updated_at", Wed, 29 Apr 2015 19:28:05 UTC +00:00], ["userRating", 3], ["visited", true], ["website", "www.yelp.com"], ["ypRating", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 20ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2015-04-29 12:28:05 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" ORDER BY name
+  Rendered products/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (undefined method `visted' for #<Product:0x007fe28c6d0c10>):
+    20:     <td><%= product.ypRating %></td>
+    21:     <td><%= product.userRating %></td>
+    22:     <td><%= product.shelfSpace %></td>
+    23:     <td><%= product.visted %></td>
+    24:     <td><%= product.notes %></td>
+    25:     <td><%= link_to "Delete", product, :confirm => "are you sure?", :method => :delete%></td>
+    26:   </tr>
+  app/views/products/index.html.erb:23:in `block in _app_views_products_index_html_erb__3848695812319880765_70305497748840'
+  app/views/products/index.html.erb:13:in `_app_views_products_index_html_erb__3848695812319880765_70305497748840'
+  app/controllers/products_controller.rb:4:in `index'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY name[0m
+  Rendered products/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Served asset /products.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Served asset /layout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:18 -0700
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-04-29 12:28:31 -0700
+Processing by ProductsController#new as HTML
+  Rendered products/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-04-29 12:28:32 -0700
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:32 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2015-04-29 12:28:32 -0700
+Served asset /products.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2015-04-29 12:28:32 -0700
+Served asset /layout.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:32 -0700
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:32 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-04-29 12:28:32 -0700
+Served asset /application.js - 304 Not Modified (0ms)
