@@ -1,0 +1,79 @@
+<h1>Add more info</h1>
+<div id="formHolder">
+	<div id="form">
+	<%= form_for @product do |f| %>
+		<p class="inputInfo" placeholder="name" id="name">
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</p>
+		<p class="inputInfo" placeholder="location" id="location">
+			<%= f.label :location %>
+			<%= f.text_field :location %>
+		</p>
+		<p class="inputInfo" placeholder="phone" id="phone">
+			<%= f.label :phone %>
+			<%= f.text_field :phone %>
+		</p>
+		<p class="inputInfo" placeholder="website" id="website">
+			<%= f.label :website %>
+			<%= f.text_field :website %>
+		</p>
+		<p class="inputInfo" placeholder="ypRating" id="ypRating">
+			<%= f.label :ypRating %>
+			<%= f.text_field :ypRating %>
+		</p>
+		<p class="inputInfo" placeholder="userRating" id="userRating">
+			<%= f.label :userRating %>
+			<%= f.text_field :userRating %>
+		</p>
+		<p class="inputInfo" placeholder="shelfSpace" id="shelfSpace">
+			<%= f.label :shelfSpace %>
+			<%= f.text_field :shelfSpace %>
+		</p>
+		<p class="inputInfo" placeholder="visted" id="visted">
+			<%= f.label :visted %>
+			<%= f.text_field :visted %>
+		</p>
+		<p class="inputInfo" placeholder="notes" id="notes">
+			<%= f.label :notes %>
+			<%= f.text_field :notes %>
+		</p>
+<%= f.submit "add new info" %> 
+	</div>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+	// var items = $('.inputInfo').length;
+	// $('.inputInfo').css({'opacity':'0'});
+	// $('.inputInfo:first').css({'opacity':'1'});
+	$(document).keypress(function(e) {
+    if(e.which == 13) {
+        nextQuestion();
+    }
+    function nextQuestion(){
+    	// var first = $('.inputInfo:first');
+    	// var second = $('.inputInfo:eq(1)');
+    	function run (){
+	    	// first.hide();
+	    	// second.animate({'opacity':'1'}, 1000);
+	    	// first = second;
+    	}
+    	run();
+
+    }
+});
+
+
+
+
+
+
+
+
+</script>
+
+
+
+

@@ -1,0 +1,64 @@
+<table id="products">
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Phone</th>
+    <th>Website</th>
+    <th>Yp Rating</th>
+    <th>User Rating</th>
+    <th>Shelf Space</th>
+    <th>Visted</th>
+    <th>Notes</th>
+  </tr>
+<% @products.each do |product| %>
+
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.location %></td>
+    <td><%= product.phone %></td>
+    <td><%= product.website %></td>
+    <td><%= product.ypRating %></td>
+    <td><%= product.userRating %></td>
+    <td><%= product.shelfSpace %></td>
+    <td><%= product.visted %></td>
+    <td><%= product.notes %></td>
+    <td><%= link_to "Delete", product, :confirm => "are you sure?", :method => :delete%></td>
+  </tr>
+<% end %>
+</table>
+<p>
+  Download:
+  <%= link_to "CSV", products_path(format: "csv") %> <!-- | -->
+<!--   <%= link_to "Excel", products_path(format: "xls") %>
+ --></p>
+<div id="map_canvas"></div>
+<div id="control_container">
+  <div id="map_search">
+    
+  </div>
+</div>
+<!-- <div style="margin:20px;border-width:2px; position: absolute; right: 0; z-index: 1000; background-color: rgba(255,255,255,.9); padding: 20px;">
+    <select id="start">
+      <option value="Los Angeles, ca">Los Angeles</option>
+    </select>
+    <br>
+    <i>(Ctrl-Click for multiple selection)</i> <br>
+    <select multiple id="waypoints">
+    </select>
+    <br>
+    <select id="end">
+      <option value="Los Angeles, ca">Los Angeles</option>
+    </select>
+    <br>
+      <input type="submit" id="submit" onclick="calcRoute();">
+    </div>
+    <div id="directions_panel"></div>
+    <div id="info"></div> -->
+<%= yield %>
+<script type="text/javascript">
+$('#submit').click(function(){
+  $('#results').animate({'left':'-700px'}, 3000)
+  $('#control_container').animate({'position':'absolute','left':'-700px'}, 3000)
+});
+$('tr:odd').css({'background-color':'rgba(33,33,33,.1)'})
+</script>
