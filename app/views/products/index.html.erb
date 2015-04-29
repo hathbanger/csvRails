@@ -1,27 +1,36 @@
 <table id="products">
   <tr>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Phone</th>
-    <th>Website</th>
-    <th>Yp Rating</th>
-    <th>User Rating</th>
-    <th>Shelf Space</th>
-    <th>Visted</th>
-    <th>Notes</th>
+    <th>VISTED</th>
+    <th>COMPANY</th>
+    <th>LOCATION</th>
+    <th>ZIP</th>
+    <th>PHONE</th>
+    <th>CONTACT</th>
+    <th>MANAGER</th>
+    <th>INTEREST</th>
+    <th>NOTES</th>
+    <th>RATING</th>
+    <th>SHELF SPACE</th>
   </tr>
 <% @products.each do |product| %>
 
   <tr>
-    <td><%= product.name %></td>
-    <td><%= product.location %></td>
-    <td><%= product.phone %></td>
-    <td><%= product.website %></td>
-    <td><%= product.ypRating %></td>
-    <td><%= product.userRating %></td>
-    <td><%= product.shelfSpace %></td>
     <td><%= product.visited %></td>
+    <td>
+      <%= link_to product.name, product.website %>
+    </td>
+    <td><%= product.location %></td>
+    <td><%= product.zip %></td>
+    <td><%= product.phone %></td>
+    <td><%= product.contact %></td>
+    <td><%= product.manager %></td>
+    <td><%= product.status %></td>
     <td><%= product.notes %></td>
+    <td><%= product.ypRating %></td>
+    <td><%= product.shelfSpace %></td>
+
+
+
     <td><%= link_to "Delete", product, :confirm => "are you sure?", :method => :delete%></td>
   </tr>
 <% end %>

@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :location, :phone, :website, :ypRating, :userRating, :shelfSpace, :visited, :notes
+  attr_accessible :name, :location, :phone, :website, :ypRating, :userRating, :shelfSpace, :visited, :notes, :zip, :manager, :contact, :status
   
   
   def self.to_csv(options = {})
